@@ -42,7 +42,7 @@ def criar_tabela(nome, intervalo):
                 else f"{row[col] / dollar:,.2f}",
                 axis=1,
             )
-
+        tabela_df['Unit'] = tabela_df['Unit'].apply(lambda x: 'USD' if x == 'R$' else x)
         st.dataframe(tabela_df, use_container_width=True)
 
 def criar_tabela_aba(df, nome, intervalo, cabecalho=None, remove_blank=False):
